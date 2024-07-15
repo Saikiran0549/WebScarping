@@ -27,8 +27,8 @@ public class URLHandler {
 
     public static Document initiateSession() throws IOException {
 
-        //As per clients' request for confidentiality, I am using a sample open source website called : www.cochranelibrary.com
-        String mainPageUrl = "https://cochranelibrary.com";
+        //As per clients' request for confidentiality, I am using a sample open source website:
+        String mainPageUrl = "www.themoviedb.org";
 
         initialSessionResponse = Jsoup.connect(mainPageUrl)
                 .method(Connection.Method.GET)
