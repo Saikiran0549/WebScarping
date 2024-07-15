@@ -12,8 +12,8 @@ public class HandleTheFile {
 
     public static boolean createFile(ArrayList<Elements> reviews, String topic) throws IOException {
 
-        String baseUrl = "https://www.cochranelibrary.com/";
-        String filePath = "cochrane_reviews.txt";
+        String baseUrl = "https://www.themoviedb.org/";
+        String filePath = "movie_reviews.txt";
         int reviewsCount = 0;
 
         SimpleDateFormat originalFormat = new SimpleDateFormat("dd MMMM yyyy");
@@ -23,11 +23,11 @@ public class HandleTheFile {
             for (Elements reviewElements : reviews) {
                 for (Element review : reviewElements) {
 
-                    String topicUrl = baseUrl + review.select("a[href]").attr("href");
+                    String movieUrl = baseUrl + review.select("a[href]").attr("href");
 
-                    String title = review.getElementsByClass("result-title").text();
+                    String title  = review.getElementsByClass("result-title").text();
 
-                    String authors = review.getElementsByClass("search-result-authors").text();
+                    String actors = review.getElementsByClass("search-result-actors").text();
 
                     String date = review.getElementsByClass("search-result-date").text();
 
@@ -38,7 +38,7 @@ public class HandleTheFile {
                         System.err.println("error in fetching date" + e.getMessage());
                         date = " Unknown";
                     }
-                    String line = String.format("%s|%s|%s|%s|%s%n", topicUrl, topic, title, authors, date);
+                    String line = String.format("%s|%s|%s|%s|%s%n", movieUrl, movie, title, actors, date);
                     writer.write(line);
                     writer.newLine();
                     reviewsCount += 1;
