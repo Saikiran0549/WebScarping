@@ -38,7 +38,7 @@ public class HandleTheFile {
                         System.err.println("error in fetching date" + e.getMessage());
                         date = " Unknown";
                     }
-                    String line = String.format("%s|%s|%s|%s|%s%n", movieUrl, movie, title, actors, date);
+                    String line = String.format("%s|%s|%s|%s%n", movieUrl, title, actors, date);
                     writer.write(line);
                     writer.newLine();
                     reviewsCount += 1;
